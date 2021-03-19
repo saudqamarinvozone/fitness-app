@@ -105,6 +105,54 @@ define({ "api": [
     "title": "Sign-up",
     "name": "Signup",
     "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "name",
+            "optional": false,
+            "field": "Name",
+            "description": "<p>of a user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "email",
+            "optional": false,
+            "field": "Email",
+            "description": "<p>of a user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "contact_no",
+            "optional": false,
+            "field": "Mobile",
+            "description": "<p>number of a user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "dob",
+            "optional": false,
+            "field": "Date",
+            "description": "<p>of birth of a user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "password",
+            "optional": false,
+            "field": "Password",
+            "description": "<p>of a user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "confirm_password",
+            "optional": false,
+            "field": "Confirm",
+            "description": "<p>Password of a user</p>"
+          }
+        ]
+      }
+    },
     "version": "0.0.0",
     "filename": "./index.js",
     "groupTitle": "User"

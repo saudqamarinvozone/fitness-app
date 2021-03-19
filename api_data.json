@@ -318,42 +318,42 @@
             "group": "Success 200",
             "type": "object",
             "optional": false,
-            "field": "routines",
+            "field": "routine",
             "description": ""
           },
           {
             "group": "Success 200",
             "type": "number",
             "optional": false,
-            "field": "routines.id",
+            "field": "routine.id",
             "description": ""
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "routines.title",
+            "field": "routine.title",
             "description": ""
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "routines.description",
+            "field": "routine.description",
             "description": ""
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "routines.rating",
+            "field": "routine.rating",
             "description": ""
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "routines.level",
+            "field": "routine.level",
             "description": ""
           }
         ]
@@ -478,42 +478,42 @@
             "group": "Success 200",
             "type": "object",
             "optional": false,
-            "field": "routines",
+            "field": "routine",
             "description": ""
           },
           {
             "group": "Success 200",
             "type": "number",
             "optional": false,
-            "field": "routines.id",
+            "field": "routine.id",
             "description": ""
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "routines.title",
+            "field": "routine.title",
             "description": ""
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "routines.description",
+            "field": "routine.description",
             "description": ""
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "routines.rating",
+            "field": "routine.rating",
             "description": ""
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "routines.level",
+            "field": "routine.level",
             "description": ""
           }
         ]

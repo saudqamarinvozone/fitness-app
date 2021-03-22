@@ -1,4 +1,6 @@
 const express = require('express');
+const Sequelize = require('sequelize');
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -275,6 +277,38 @@ app.get('/routines/:id', (req, res) => {
  *
  */
 app.post('/user/routines', (req, res) => {
+
+});
+
+/**
+ * @api {get} user/routines Get User Routines
+ * @apiName Get User Routine
+ * @apiGroup Routines
+ *
+ * @apiHeader {String} Authorization The token can be generated from your user profile.
+ * @apiHeaderExample {Header} Header-Example
+ *      "Authorization": "Bearer 5f048fe"
+ *
+ * @apiSuccess {string} status
+ * @apiSuccess {string} message
+ * @apiSuccess {object[]} routine
+ * @apiSuccess {number} routine.id
+ * @apiSuccess {string} routine.title
+ * @apiSuccess {string} routine.description
+ * @apiSuccess {string} routine.rating
+ * @apiSuccess {string} routine.level
+ * @apiSuccess {objects[]} routine.exercises
+ * @apiSuccess {number} routines.exercises.id
+ * @apiSuccess {string} routines.exercises.title
+ * @apiSuccess {string} routines.exercises.description
+ * @apiSuccess {string} routines.exercises.rating
+ * @apiSuccess {string} routines.exercises.level
+ *
+ * @apiError (500 Internal Server Error) InternalServerError The server encountered an internal error
+ * @apiError (401 Unauthorized) Unauthorized Unable to access/Access Denied
+ *
+ */
+app.get('/user/routines', (req, res) => {
 
 });
 

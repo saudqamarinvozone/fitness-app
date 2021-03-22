@@ -899,6 +899,160 @@
     "groupTitle": "Routines"
   },
   {
+    "type": "get",
+    "url": "user/routines",
+    "title": "Get User Routines",
+    "name": "Get_User_Routine",
+    "group": "Routines",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>The token can be generated from your user profile.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example",
+          "content": "\"Authorization\": \"Bearer 5f048fe\"",
+          "type": "Header"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "message",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "object[]",
+            "optional": false,
+            "field": "routine",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "routine.id",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "routine.title",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "routine.description",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "routine.rating",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "routine.level",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "objects[]",
+            "optional": false,
+            "field": "routine.exercises",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "routines.exercises.id",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "routines.exercises.title",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "routines.exercises.description",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "routines.exercises.rating",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "routines.exercises.level",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "500 Internal Server Error": [
+          {
+            "group": "500 Internal Server Error",
+            "optional": false,
+            "field": "InternalServerError",
+            "description": "<p>The server encountered an internal error</p>"
+          }
+        ],
+        "401 Unauthorized": [
+          {
+            "group": "401 Unauthorized",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Unable to access/Access Denied</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./index.js",
+    "groupTitle": "Routines"
+  },
+  {
     "type": "post",
     "url": "/change-password",
     "title": "Change Password",

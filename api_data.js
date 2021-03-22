@@ -901,7 +901,7 @@ define({ "api": [
   {
     "type": "get",
     "url": "user/routines",
-    "title": "Create User Routines",
+    "title": "Get User Routines",
     "name": "Get_User_Routine",
     "group": "Routines",
     "header": {

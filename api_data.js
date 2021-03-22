@@ -924,19 +924,6 @@ define({ "api": [
         }
       ]
     },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "number",
-            "optional": false,
-            "field": "routineId",
-            "description": "<p>Id of a routine</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [

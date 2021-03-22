@@ -108,7 +108,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/exercise.routes.js",
     "groupTitle": "Exercises"
   },
   {
@@ -220,7 +220,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/exercise.routes.js",
     "groupTitle": "Exercises"
   },
   {
@@ -380,7 +380,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/log.routes.js",
     "groupTitle": "Logs"
   },
   {
@@ -540,7 +540,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/log.routes.js",
     "groupTitle": "Logs"
   },
   {
@@ -623,7 +623,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/routine.routes.js",
     "groupTitle": "Routines"
   },
   {
@@ -777,7 +777,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/routine.routes.js",
     "groupTitle": "Routines"
   },
   {
@@ -895,7 +895,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/routine.routes.js",
     "groupTitle": "Routines"
   },
   {
@@ -1049,7 +1049,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/routine.routes.js",
     "groupTitle": "Routines"
   },
   {
@@ -1173,7 +1173,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/auth.routes.js",
     "groupTitle": "User"
   },
   {
@@ -1316,7 +1316,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/auth.routes.js",
     "groupTitle": "User"
   },
   {
@@ -1378,7 +1378,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/auth.routes.js",
     "groupTitle": "User"
   },
   {
@@ -1457,7 +1457,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/auth.routes.js",
     "groupTitle": "User"
   },
   {
@@ -1676,7 +1676,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "./index.js",
+    "filename": "./routes/auth.routes.js",
     "groupTitle": "User"
   }
 ] });

@@ -1,7 +1,8 @@
 # Editor Files
 .idea
 .idea/
-
+# Config Files
+config/config.json
 # Logs
 logs
 *.log

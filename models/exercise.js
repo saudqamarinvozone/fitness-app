@@ -2,7 +2,9 @@
 const {
   Model
 } = require('sequelize');
+
 const Routine = require('./routine');
+
 module.exports = (sequelize, DataTypes) => {
   class Exercise extends Model {
     /**

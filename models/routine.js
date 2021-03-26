@@ -3,8 +3,8 @@ const {
   Model
 } = require('sequelize');
 
-const Exercise = require('./excercise');
-const Log = require('./log');
+const Exercise = require('./exercise');
+const Log = require('./workout');
 
 module.exports = (sequelize, DataTypes) => {
 

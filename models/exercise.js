@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Excercise.belongsToMany(Routine, { through: 'RoutineExercises' });
+      Exercise.belongsToMany(Routine, { through: 'RoutineExercises' });
     }
   };
   Exercise.init({

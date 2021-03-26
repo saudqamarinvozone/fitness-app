@@ -7,7 +7,7 @@ const Excercise = require('./exercise');
 const Routine = require('./routine');
 
 module.exports = (sequelize, DataTypes) => {
-  class RoutineExcercises extends Model {
+  class RoutineExercise extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  RoutineExcercise.init({
+  RoutineExercise.init({
     
     routineId: DataTypes.INTEGER,
     references: {
@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     {},
     {
     sequelize,
-    modelName: 'RoutineExcercises',
+    modelName: 'RoutineExercise',
   });
-  return RoutineExcercises;
+  return RoutineExercise;
 };

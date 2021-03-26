@@ -10,6 +10,8 @@ app.use(express.static('public'));
 // console.log(routes);
 app.use('/', routes);
 
+console.log(constants.exerciseLevels);
+
 app.listen(5000, function () {
     console.log('Task api up and running...');
 });

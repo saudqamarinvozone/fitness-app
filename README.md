@@ -30,7 +30,7 @@ Your app should now be running on localhost:5000
 
 ## Configurations
 
-* <b>Microsoft Windows</b>
+* <b>Database Configurations</b>
 
 * Copy example.config.json file inside the config directoy
 * Rename the file config.json

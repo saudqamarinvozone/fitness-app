@@ -7,10 +7,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
-// console.log(routes);
-app.use('/', routes);
 
-console.log(constants.exerciseLevels);
+app.use('/', routes);
 
 app.listen(5000, function () {
     console.log('Task api up and running...');

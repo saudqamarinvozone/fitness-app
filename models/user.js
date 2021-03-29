@@ -1,4 +1,3 @@
-'use strict';
 const {
   Model
 } = require('sequelize');
@@ -17,8 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    dob: DataTypes.DATEONLY,
-    age: DataTypes.INTEGER
+    dob: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',

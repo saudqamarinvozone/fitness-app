@@ -1,11 +1,13 @@
 const express = require('express');
+const User = require('../models/user');
+
 const router = express.Router();
 
 /**
  * @api {post} /sign-up Sign-up
  * @apiName Signup
  * @apiGroup User
- * 
+ *
  * @apiParam {string} name name of a user
  * @apiParam {email} email email of a user
  * @apiParam {string} contact_no Contact Number of a user
@@ -23,7 +25,8 @@ const router = express.Router();
  * @apiSuccess {number} user.age
  * @apiSuccess {string} access_token
  *
- * @apiError (500 Internal Server Error) InternalServerError The server encountered an internal error
+ * @apiError (500 Internal Server Error) InternalServerError
+ * The server encountered an internal error
  * @apiError (NameRequired) Name name field cannot be empty
  * @apiError (NameTooShort) Name name field at least have 4 characters
  *
@@ -36,14 +39,21 @@ const router = express.Router();
  * @apiError (DobRequired) DateOfBirth date of birth field cannot be empty
  *
  * @apiError (PasswordRequired) Password password field cannot be empty
- * @apiError (PasswordValid) Password password at least have 8 characters and must have one digit, one special character
+ * @apiError (PasswordValid) Password password at least have 8 characters and must have one digit,
+ * one special character
  * and one UpperCase letter
  *
  * @apiError (ConfirmPasswordMatch) ConfirmPassword confirm_password and password doesn't match
  */
 
-router.get('/sign-up', (req, res) => {
-    res.send('Sign Up');
+router.post('/sign-up', (req, res) => {
+  const user = User.create({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+    dob: req.body.dob,
+  });
+  return res.json(user);
 });
 /**
  * @api {post} /login Login
@@ -64,7 +74,8 @@ router.get('/sign-up', (req, res) => {
  * @apiSuccess {string} access_token
  *
  * @apiError (401 Unauthorized) Unauthorized Invalid credentials
- * @apiError (500 Internal Server Error) InternalServerError The server encountered an internal error
+ * @apiError (500 Internal Server Error) InternalServerError
+ * The server encountered an internal error
  *
  * @apiError (EmailRequired) Email email field cannot be empty
  * @apiError (EmailValid) Email email field should be type of email
@@ -74,7 +85,7 @@ router.get('/sign-up', (req, res) => {
  */
 
 router.post('/login', (req, res) => {
-    res.send('login')
+  res.send('login');
 });
 /**
  * @api {post} /reset-password Reset Password
@@ -87,14 +98,15 @@ router.post('/login', (req, res) => {
  * @apiSuccess {string} message
  *
  * @apiError (404 Unauthorized) NotFound User against email not found
- * @apiError (500 Internal Server Error) InternalServerError The server encountered an internal error
+ * @apiError (500 Internal Server Error) InternalServerError
+ * The server encountered an internal error
  *
  * @apiError (EmailRequired) Email email field cannot be empty
  * @apiError (EmailValid) Email email field should be type of email
  */
-router.post('/reset-password', (req, res) => {
+// router.post('/reset-password', (req, res) => {
 
-});
+// });
 
 /**
  * @api {post} /change-password Change Password
@@ -109,19 +121,21 @@ router.post('/reset-password', (req, res) => {
  * @apiSuccess {String} status
  * @apiSuccess {String} message
  *
- * @apiError (500 Internal Server Error) InternalServerError The server encountered an internal error
+ * @apiError (500 Internal Server Error) InternalServerError
+ * The server encountered an internal error
  * @apiError (404 Unauthorized) NotFound User against email not found
  *
  * @apiError (emailRequired) Email email field cannot be empty
  * @apiError (tokenRequired) Token token field cannot be empty
  *
  * @apiError (PasswordRequired) Password password field cannot be empty
- * @apiError (PasswordValid) Password password at least have 8 characters and must have one digit, one special character
+ * @apiError (PasswordValid) Password password at least have 8 characters
+ * and must have one digit, one special character
  * and one UpperCase letter
  * @apiError (ConfirmPasswordMatch) ConfirmPassword confirm_password and password doesn't match
  */
 router.get('/change-password', (req, res) => {
-    res.send('change-password');
+  res.send('change-password');
 });
 
 /**
@@ -136,10 +150,12 @@ router.get('/change-password', (req, res) => {
  * @apiSuccess {string} status
  * @apiSuccess {string} message
  *
- * @apiError (500 Internal Server Error) InternalServerError The server encountered an internal error
+ * @apiError (500 Internal Server Error) InternalServerError
+ * The server encountered an internal error
  *
  */
-router.post('/logout', (req, res) => {
-    
-});
+// router.post('/logout', (req, res) => {
+
+// });
+
 module.exports = router;

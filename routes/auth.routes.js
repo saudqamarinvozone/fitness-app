@@ -1,8 +1,8 @@
 const express = require('express');
-const User = require('../models/user');
 
 const router = express.Router();
 
+const { register } = require('../controllers/auth.controller');
 /**
  * @api {post} /sign-up Sign-up
  * @apiName Signup
@@ -46,15 +46,7 @@ const router = express.Router();
  * @apiError (ConfirmPasswordMatch) ConfirmPassword confirm_password and password doesn't match
  */
 
-router.post('/sign-up', (req, res) => {
-  const user = User.create({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-    dob: req.body.dob,
-  });
-  return res.json(user);
-});
+router.post('/sign-up', register);
 /**
  * @api {post} /login Login
  * @apiName Login
@@ -104,9 +96,9 @@ router.post('/login', (req, res) => {
  * @apiError (EmailRequired) Email email field cannot be empty
  * @apiError (EmailValid) Email email field should be type of email
  */
-// router.post('/reset-password', (req, res) => {
+router.post('/reset-password', (req, res) => {
 
-// });
+});
 
 /**
  * @api {post} /change-password Change Password

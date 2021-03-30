@@ -1,8 +1,9 @@
 const express = require('express');
+const { body } = require('express-validator');
 
 const router = express.Router();
 const {
-  store, getAll, get, update, destroy,
+  store, getAll, getFeatured, get, update, destroy,
 } = require('../controllers/exercise.controller');
 
 /**
@@ -28,7 +29,13 @@ const {
  * @apiError (401 Unauthorized) Unauthorized Unable to access/Access Denied
  *
  */
-router.post('/', store);
+router.post('/',
+  [
+    body('title').exists(),
+    body('description').exists(),
+    body('level').exists(),
+  ],
+  store);
 /**
  * @api {get} /exercises All Exercises
  * @apiName Get All Exercises
@@ -76,9 +83,7 @@ router.get('/', getAll);
  * The server encountered an internal error
  * @apiError (401 Unauthorized) Unauthorized Unable to access/Access Denied
  */
-router.get('/featured', (req, res) => {
-  res.send('featured exercises');
-});
+router.get('/featured', getFeatured);
 /**
  * @api {get} /exercises Get Single Exercises
  * @apiName Get Single Exercises
@@ -127,7 +132,13 @@ router.get('/:id', get);
  * @apiError (401 Unauthorized) Unauthorized Unable to access/Access Denied
  *
  */
-router.put('/:id', update);
+router.put('/:id',
+  [
+    body('title').exists(),
+    body('description').exists(),
+    body('level').exists(),
+  ],
+  update);
 /**
  * @api {put} /exercises Delete Exercise
  * @apiName Delete Exercise
@@ -152,4 +163,5 @@ router.put('/:id', update);
  *
  */
 router.delete('/:id', destroy);
+
 module.exports = router;

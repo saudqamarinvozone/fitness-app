@@ -1,8 +1,9 @@
 const express = require('express');
 
 const router = express.Router();
+const { body } = require('express-validator');
 
-const { register } = require('../controllers/auth.controller');
+const { register, login } = require('../controllers/auth.controller');
 /**
  * @api {post} /sign-up Sign-up
  * @apiName Signup
@@ -46,7 +47,22 @@ const { register } = require('../controllers/auth.controller');
  * @apiError (ConfirmPasswordMatch) ConfirmPassword confirm_password and password doesn't match
  */
 
-router.post('/sign-up', register);
+router.post('/sign-up',
+  [
+    body('email').isEmail(),
+    body('password').isLength({ min: 6 }),
+    body('contact_no').exists(),
+    body('dob').exists(),
+    body('confirm_password').custom((value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error('Password confirmation does not match password');
+      }
+
+      // Indicates the success of this synchronous custom validator
+      return true;
+    }),
+  ],
+  register);
 /**
  * @api {post} /login Login
  * @apiName Login
@@ -76,9 +92,12 @@ router.post('/sign-up', register);
  *
  */
 
-router.post('/login', (req, res) => {
-  res.send('login');
-});
+router.post('/login',
+  [
+    body('email').isEmail(),
+    body('password').exists(),
+  ],
+  login);
 /**
  * @api {post} /reset-password Reset Password
  * @apiName Reset Password

@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 
 /**
@@ -26,7 +27,8 @@ const router = express.Router();
  * @apiSuccess {string} routine.rating
  * @apiSuccess {string} routine.level
  *
- * @apiError (500 Internal Server Error) InternalServerError The server encountered an internal error
+ * @apiError (500 Internal Server Error) InternalServerError
+ * The server encountered an internal error
  * @apiError (401 Unauthorized) Unauthorized Unable to access/Access Denied
  *
  */
@@ -59,7 +61,8 @@ router.post('/', (req, res) => {
  * @apiSuccess {string} routine.rating
  * @apiSuccess {string} routine.level
  *
- * @apiError (500 Internal Server Error) InternalServerError The server encountered an internal error
+ * @apiError (500 Internal Server Error) InternalServerError
+ * The server encountered an internal error
  * @apiError (401 Unauthorized) Unauthorized Unable to access/Access Denied
  *
  */

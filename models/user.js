@@ -1,12 +1,9 @@
 const {
-  Model
+  Model,
 } = require('sequelize');
-const Exercise = require('./exercise');
-const Workout = require('./workout');
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -14,18 +11,27 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // User.belongsToMany(Exercise, { through: 'UserExercise' });
+      User.belongsToMany(models.Exercise, {
+        through: models.UserExercises,
+        foreignKey: 'userId',
+        otherKey: 'exerciseId',
+      });
+      User.hasMany(models.Workout);
       // User.hasMany(Workout);
     }
-  };
+  }
   User.init({
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    dob: DataTypes.STRING
+    dob: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'User',
+  });
+  User.addHook('beforeDestroy', async (user, options) => {
+    const exercises = await user.getExercises();
+    await user.removeExercises(exercises);
   });
   return User;
 };

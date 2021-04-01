@@ -2,8 +2,12 @@ const express = require('express');
 
 const router = express.Router();
 const { body } = require('express-validator');
+const db = require('../models/index');
 
-const { register, login } = require('../controllers/auth.controller');
+const { User } = db;
+const {
+  register, login, forgetPassword, resetPassword,
+} = require('../controllers/auth.controller');
 /**
  * @api {post} /sign-up Sign-up
  * @apiName Signup
@@ -53,6 +57,14 @@ router.post('/sign-up',
     body('password').isLength({ min: 6 }),
     body('contact_no').exists(),
     body('dob').exists(),
+    body('email').custom((value) => {
+      return User.findOne({
+        where: { email: value },
+      }).then(user => {
+        if (user)
+          return Promise.reject('Email already in use');
+      })
+    }),
     body('confirm_password').custom((value, { req }) => {
       if (value !== req.body.password) {
         throw new Error('Password confirmation does not match password');
@@ -115,13 +127,13 @@ router.post('/login',
  * @apiError (EmailRequired) Email email field cannot be empty
  * @apiError (EmailValid) Email email field should be type of email
  */
-router.post('/reset-password', (req, res) => {
-
-});
+router.post('/forget-password', [
+  body('email').isEmail(),
+], forgetPassword);
 
 /**
- * @api {post} /change-password Change Password
- * @apiName Change Password
+ * @api {post} /reset-password Change Password
+ * @apiName Reset Password
  * @apiGroup User
  *
  * @apiParam {email} email Email of a user
@@ -145,9 +157,17 @@ router.post('/reset-password', (req, res) => {
  * and one UpperCase letter
  * @apiError (ConfirmPasswordMatch) ConfirmPassword confirm_password and password doesn't match
  */
-router.get('/change-password', (req, res) => {
-  res.send('change-password');
-});
+router.post('/reset-password', [
+  body('password').isLength({ min: 6 }),
+  body('confirm_password').custom((value, { req }) => {
+    if (value !== req.body.password) {
+      throw new Error('Password confirmation does not match password');
+    }
+
+    // Indicates the success of this synchronous custom validator
+    return true;
+  }),
+], resetPassword);
 
 /**
  * @api {post} /logout Logout

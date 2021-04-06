@@ -2,9 +2,6 @@
 const {
   Model
 } = require('sequelize');
-
-const Routine = require('./routine');
-
 module.exports = (sequelize, DataTypes) => {
   class Exercise extends Model {
     /**
@@ -14,14 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Exercise.belongsToMany(Routine, { through: 'RoutineExercises' });
+      Exercise.belongsToMany(models.User, {
+        through: models.UserExercises,
+        foreignKey: 'exerciseId',
+        otherKey: 'userId',
+      });
     }
-  };
+  }
   Exercise.init({
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
     level: DataTypes.STRING,
-    rating: DataTypes.DECIMAL(3,2)
+    rating: DataTypes.DECIMAL(3, 2),
   }, {
     sequelize,
     modelName: 'Exercise',

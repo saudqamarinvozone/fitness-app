@@ -3,8 +3,6 @@ const {
   Model
 } = require('sequelize');
 
-const Routine = require('./routine');
-
 module.exports = (sequelize, DataTypes) => {
   class Workout extends Model {
     /**
@@ -14,22 +12,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Workout.belongsTo(Routine)
     }
-  };
+  }
+
   Workout.init({
 
-    routineId: {
-      type: Sequelize.INTEGER,
-      references: {
-        model: Routine,
-        key: 'id'
-      }
-    },
+    userId: DataTypes.INTEGER,
+
+    exerciseId: DataTypes.INTEGER,
+
+    routineId: DataTypes.INTEGER,
 
     startTime: DataTypes.DATE,
-    duration: DataTypes.STRING
-    
+
+    duration: DataTypes.STRING,
+
   }, {
     sequelize,
     modelName: 'Workout',

@@ -6,52 +6,50 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
-
       userId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
-          key: 'id'
-        }
+          key: 'id',
+        },
       },
-      
+
       exerciseId: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
           model: 'Exercises',
-          key: 'id'
-        }
+          key: 'id',
+        },
       },
+
       routineId: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
           model: 'Routines',
-          key: 'id'
-        }
+          key: 'id',
+        },
       },
-      
+
       startTime: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
 
       duration: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
 
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
       }
-
     });
   },
   down: async (queryInterface, Sequelize) => {

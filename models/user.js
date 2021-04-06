@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -11,17 +11,27 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.belongsToMany(models.Exercise, {
+        through: models.UserExercises,
+        foreignKey: 'userId',
+        otherKey: 'exerciseId',
+      });
+      User.hasMany(models.Workout);
+      // User.hasMany(Workout);
     }
-  };
+  }
   User.init({
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    dob: DataTypes.DATEONLY,
-    age: DataTypes.INTEGER
+    dob: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'User',
+  });
+  User.addHook('beforeDestroy', async (user, options) => {
+    const exercises = await user.getExercises();
+    await user.removeExercises(exercises);
   });
   return User;
 };

@@ -1,10 +1,7 @@
 'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
-
-const Excercise = require('./exercise');
-const Routine = require('./routine');
 
 module.exports = (sequelize, DataTypes) => {
   class RoutineExercise extends Model {
@@ -16,24 +13,15 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
+  }
+
   RoutineExercise.init({
-    
     routineId: DataTypes.INTEGER,
-    references: {
-      'model': Routine,
-      'key': id
-    },
     exerciseId: DataTypes.INTEGER,
-    references: {
-      'model': Excercise,
-      'key': id,
-    }
-  },
-    {},
-    {
+  }, {
     sequelize,
     modelName: 'RoutineExercise',
   });
+
   return RoutineExercise;
 };

@@ -46,6 +46,7 @@ const login = async (req, res) => {
 
     const result = {
       authToken: jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY),
+      user,
     };
 
     res.status(errorCodes.OK).json(result);

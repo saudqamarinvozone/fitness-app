@@ -13,8 +13,8 @@ const exerciseErrors = {
   ALREADY_EXIST: 'Exercise already exist',
 };
 const userErrors = {
-  NOT_FOUND: 'Exercise not found',
-  ALREADY_EXIST: 'Exercise already exist',
+  NOT_FOUND: 'User not found',
+  ALREADY_EXIST: 'User already exist',
   INVALID_CREDENTAILS: 'Email or password is incorrect',
 };
 module.exports = {

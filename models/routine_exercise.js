@@ -1,12 +1,10 @@
 'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
 
-const Routine = require('./routine');
-
 module.exports = (sequelize, DataTypes) => {
-  class Log extends Model {
+  class RoutineExercise extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -14,25 +12,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Log.belongsTo(Routine)
     }
-  };
-  Log.init({
+  }
 
-    routineId: {
-      type: Sequelize.INTEGER,
-      references: {
-        model: Routine,
-        key: 'id'
-      }
-    },
-
-    startTime: DataTypes.DATE,
-    duration: DataTypes.STRING
-    
+  RoutineExercise.init({
+    routineId: DataTypes.INTEGER,
+    exerciseId: DataTypes.INTEGER,
   }, {
     sequelize,
-    modelName: 'Log',
+    modelName: 'RoutineExercise',
   });
-  return Log;
+
+  return RoutineExercise;
 };
